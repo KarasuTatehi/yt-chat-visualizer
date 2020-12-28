@@ -5,6 +5,8 @@
   "main": "../../index.js",
   "scripts": {
     "start": "node ../..",
+    "build:extension": "parcel build src/extension/index.ts -t node -d extension --public-url ./",
+    "build:graphics": "parcel build src/graphics/app.pug -t browser -d graphics --public-url ./"
   },
   "repository": {
     "type": "git",
