@@ -5,7 +5,7 @@ import { CommentItem } from 'youtube-chat/dist/parser';
 
 export = (nodecg: NodeCG) => {
 
-  const channelId = { channelId: 'UC_a1ZYZ8ZTXpjg9xUY9sj8w' };
+  const channelId = { channelId: 'UCCwedbOIXxubr7_d2-7bM3g' };
 
   const listener = (comment: CommentItem) => {
     nodecg.sendMessage('comment', comment);
