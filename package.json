@@ -1,0 +1,45 @@
+{
+  "name": "yt-chat-visualizer",
+  "version": "0.1.0",
+  "description": "",
+  "main": "../../index.js",
+  "scripts": {
+    "start": "node ../..",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarasuTatehi/yt-chat-visualizer.git"
+  },
+  "keywords": [],
+  "author": "KarasuTatehi",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/KarasuTatehi/yt-chat-visualizer/issues"
+  },
+  "homepage": "https://github.com/KarasuTatehi/yt-chat-visualizer#readme",
+  "nodecg": {
+    "compatibleRange": "^1.7.0",
+    "graphics": [
+      {
+        "file": "app.html",
+        "width": 1280,
+        "height": 720,
+        "singleInstance": false
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "pug": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.30.0",
+    "typescript": "^4.1.3",
+    "youtube-chat": "^1.1.0"
+  }
+}
