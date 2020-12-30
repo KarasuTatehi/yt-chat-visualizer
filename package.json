@@ -25,6 +25,14 @@
   "homepage": "https://github.com/KarasuTatehi/yt-chat-visualizer#readme",
   "nodecg": {
     "compatibleRange": "^1.7.0",
+    "dashboardPanels": [
+      {
+        "name": "dashboard",
+        "title": "YouTube Chat Visualizer",
+        "width": 3,
+        "file": "dashboard.html"
+      }
+    ],
     "graphics": [
       {
         "file": "app.html",
