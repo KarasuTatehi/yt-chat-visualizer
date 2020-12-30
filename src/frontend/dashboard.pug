@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    title YouTube Chat Visualizer
+
+    link(rel="stylesheet", href="./scss/dashboard.scss")
+
+  body
+    main.section
+      .field.has-addons
+        .control
+          .button.is-static ../watch?v=
+
+        .control.is-expanded
+          input.input(type="text" name="liveId" autocomplete="off" placeholder="Live ID" required)
+
+      hr
+
+      .field.is-grouped
+        .control.is-expanded
+          button.button.is-fullwidth.is-success Start
+
+        .control.is-expanded
+          button.button.is-fullwidth.is-danger(disabled) Stop
+
+  script(src="./ts/dashboard.ts")
