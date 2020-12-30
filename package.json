@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node ../..",
     "clear": "rimraf dashboard extension graphics",
-    "build:extension": "parcel build src/extension/index.ts -t node -d extension --public-url ./",
-    "build:graphics": "parcel build src/graphics/app.pug -t browser -d graphics --public-url ./",
-    "build": "run-s clear build:extension build:graphics"
+    "build:extension": "parcel build ./src/backend/index.ts -t node -d ./extension --public-url ./",
+    "build:dashboard": "parcel build ./src/frontend/dashboard.pug -t browser -d ./dashboard --public-url ./",
+    "build:graphics": "parcel build ./src/frontend/graphics.pug -t browser -d ./graphics --public-url ./",
+    "build": "run-s clear build:extension build:dashboard build:graphics"
   },
   "repository": {
     "type": "git",
