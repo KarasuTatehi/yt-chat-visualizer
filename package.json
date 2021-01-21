@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/KarasuTatehi/yt-chat-visualizer#readme",
   "nodecg": {
-    "compatibleRange": "^1.7.0",
+    "compatibleRange": "^1.6.0",
     "dashboardPanels": [
       {
         "name": "dashboard",
