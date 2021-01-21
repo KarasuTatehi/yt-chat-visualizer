@@ -9,7 +9,11 @@
     "build:extension": "parcel build ./src/backend/index.ts -t node -d ./extension --public-url ./ --no-source-maps --no-cache",
     "build:dashboard": "parcel build ./src/frontend/dashboard.pug -t browser -d ./dashboard --public-url ./ --no-source-maps --no-cache",
     "build:graphics": "parcel build ./src/frontend/graphics.pug -t browser -d ./graphics --public-url ./ --no-source-maps --no-cache",
-    "build": "run-s clear build:extension build:dashboard build:graphics"
+    "build": "run-s clear build:extension build:dashboard build:graphics",
+    "watch:extension": "parcel watch ./src/backend/index.ts -t node -d ./extension --public-url ./ --no-source-maps --no-cache",
+    "watch:dashboard": "parcel watch ./src/frontend/dashboard.pug -t browser -d ./dashboard --public-url ./ --no-source-maps --no-cache",
+    "watch:graphics": "parcel watch ./src/frontend/graphics.pug -t browser -d ./graphics --public-url ./ --no-source-maps --no-cache",
+    "watch": "run-p watch:extension watch:dashboard watch:graphics"
   },
   "repository": {
     "type": "git",
