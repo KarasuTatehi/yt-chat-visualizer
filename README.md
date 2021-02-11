@@ -2,44 +2,54 @@
 
 ブラウザソースに対応する配信ソフトウェア ([OBS Studio](https://obsproject.com/), [vMix](http://www.vmix.com/), [XSplit](https://www.xsplit.com/), [CasparCG](https://github.com/CasparCG/server/releases)) に、[NodeCG](https://www.nodecg.dev/)と[youtube-chat](https://www.npmjs.com/package/youtube-chat)を使ったビジュアルライクなコメントビューワーを提供するNodeCGバンドルです。
 
-## 準備
+## インストールから起動まで (v0.2.1)
 
-0. あらかじめ[NodeCG](https://www.nodecg.dev/)を用意しておいてください。
+1.  `Dockerfile` を作成
 
-1. `youtube-chat-visualizer` を `nodecg/bundles` に配置します。
+    ```dockerfile
+    FROM node:14
 
-2. `youtube-chat-visualizer/src/extension/index.ts` をエディタで開き、配信を行うYouTubeチャンネルを設定します。
+    WORKDIR /app
 
-  ```typescript
-  const channelId = { channelId: '' };
-  ```
+    RUN npx nodecg-cli setup
 
-  `https://www.youtube.com/channel/...` 以降の文字列を `''` の中に書き込んでください。
+    ADD bundles bundles
 
-3. 依存関係をインストールします。
+    EXPOSE 9090
 
-  ```
-  npm i
-  ```
+    CMD [ "npm", "start" ]
+    ```
 
-4.  `build` コマンドを実行して、NodeCGバンドルをコンパイルします。
+2.  下記コマンドを実行してセットアップ
 
-  ```
-  npm run build
-  ```
+    ```shell
+    mkdir bundles
+    cd bundles
+    git clone https://github.com/KarasuTatehi/yt-chat-visualizer.git
+    cd yt-chat-visualizer
+    git clone https://github.com/KarasuTatehi/youtube-chat.git
+    cd youtube-chat
+    npm i
+    npm run build
+    cd ..
+    npm i
+    npm run build
+    ```
 
-5.  `start` コマンドを実行して、NodeCGを起動します。
+    ※ Yarnが環境にインストールされている場合は、 `npm i` の代わりに `yarn install` が使用できます。
 
-  ```
-  npm start
-  ```
+3.  Dockerイメージのビルドと実行
 
-## 使用
+    ```shell
+    cd ../..
+    docker build -t 81no/nodecg .
+    docker run --name "NodeCG" -p 9090:9090 -d 81no/nodecg
+    ```
 
-- **NodeCGグラフィックス** - `start` コマンドを実行するとNodeCGローカルサーバーが起動され、いつでもNodeCGグラフィックスが使用可能な状態になります。
-
-  ローカルサーバーのアドレスはコマンドラインに表示されています。
+    ※ 起動後、 `http://localhost:9090/` にアクセスすると、NodeCGのダッシュボードにアクセスできます。
 
 ## 変更点
 
 - v0.1.0 - YouTubeチャットを縦方向のランダムな位置で右から左に流す、シンプルなアニメーションを実装。
+- v0.2.0 - Dockerイメージ化
+- v0.2.1 - YouTubeの仕様変更に伴い、 *youtube-chat* ライブラリを修正
