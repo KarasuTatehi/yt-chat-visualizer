@@ -9,7 +9,6 @@
     "build:extension": "parcel build ./src/backend/index.ts -t node -d ./extension --public-url ./ --no-source-maps --no-cache",
     "build:graphics": "parcel build ./src/frontend/graphics.pug -t browser -d ./graphics --public-url ./ --no-source-maps --no-cache",
     "clear": "rimraf dashboard extension graphics",
-    "setup": "git clone https://github.com/KarasuTatehi/youtube-chat.git",
     "start": "node ../.."
   },
   "repository": {
